@@ -128,5 +128,14 @@
         "status": "LUNAS",
         "waktu": "05-02-2026 23:41",
         "kode": "TKT0015"
+    },
+    {
+        "transport": "KA SAWUNGGALIH",
+        "rute": "PASAR SENEN (PSE) - KUTOARTJO (KTA)",
+        "kelas": "Economy",
+        "harga": 200000,
+        "status": "MENUNGGU PEMBAYARAN",
+        "waktu": "05-02-2026 23:54",
+        "kode": "TKT0016"
     }
 ]

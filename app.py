@@ -8,8 +8,7 @@ app.secret_key = "admin-secret"
 
 DATA_FILE = "data.json"
 ORDERS_FILE = "orders.json"
-WA_NUMBER = "6281290305857"
-
+WA_NUMBER = "6281234567832"
 # =====================
 # HELPER
 # =====================
