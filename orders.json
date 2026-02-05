@@ -1,0 +1,132 @@
+[
+    {
+        "transport": "kereta",
+        "rute": "Jakarta - Bandung",
+        "kelas": "Economy",
+        "harga": 150000,
+        "status": "LUNAS",
+        "waktu": "05-02-2026 04:58"
+    },
+    {
+        "id": 2,
+        "transport": "kereta",
+        "rute": "Jakarta - Bandung",
+        "kelas": "Ekonomi",
+        "harga": 150000,
+        "status": "LUNAS",
+        "waktu": "05-02-2026 12:42"
+    },
+    {
+        "id": 3,
+        "transport": "kereta",
+        "rute": "Jakarta - Bandung",
+        "kelas": "Ekonomi",
+        "harga": 150000,
+        "status": "LUNAS",
+        "waktu": "05-02-2026 12:43"
+    },
+    {
+        "id": 4,
+        "transport": "kereta",
+        "rute": "Jakarta - Bandung",
+        "kelas": "Ekonomi",
+        "harga": 150000,
+        "status": "LUNAS",
+        "waktu": "05-02-2026 12:43"
+    },
+    {
+        "id": 5,
+        "transport": "bus",
+        "rute": "Gambir - karanganyar (KA)",
+        "kelas": "VIP",
+        "harga": 450000,
+        "status": "LUNAS",
+        "waktu": "05-02-2026 12:46"
+    },
+    {
+        "id": 6,
+        "transport": "perahu",
+        "rute": "Merak - Bakauheuni",
+        "kelas": "VIP",
+        "harga": 200000,
+        "status": "LUNAS",
+        "waktu": "05-02-2026 12:46"
+    },
+    {
+        "transport": "BUS",
+        "rute": "Gambir - karanganyar (KA)",
+        "kelas": "VIP",
+        "harga": 450000,
+        "status": "LUNAS",
+        "waktu": "05-02-2026 12:51"
+    },
+    {
+        "transport": "BUS",
+        "rute": "Poris - Yogykarta",
+        "kelas": "VIP",
+        "harga": 550000,
+        "status": "LUNAS",
+        "waktu": "05-02-2026 12:59"
+    },
+    {
+        "transport": "PERAHU",
+        "rute": "Merak - Bakauheuni",
+        "kelas": "VIP",
+        "harga": 200000,
+        "status": "MENUNGGU PEMBAYARAN",
+        "waktu": "05-02-2026 20:08"
+    },
+    {
+        "transport": "PERAHU",
+        "rute": "Merak - Bakauheuni",
+        "kelas": "VIP",
+        "harga": 200000,
+        "status": "LUNAS",
+        "waktu": "05-02-2026 20:17",
+        "kode": "TKT0010"
+    },
+    {
+        "transport": "KA BOGOWONTO",
+        "rute": "pasar senen (PSE) - lempuyangan",
+        "kelas": "VIP",
+        "harga": 550000,
+        "status": "MENUNGGU PEMBAYARAN",
+        "waktu": "05-02-2026 21:44",
+        "tanggal": ""
+    },
+    {
+        "transport": "KERETA",
+        "rute": "Jakarta - Bandung",
+        "kelas": "Ekonomi",
+        "harga": 150000,
+        "status": "MENUNGGU PEMBAYARAN",
+        "waktu": "05-02-2026 21:47",
+        "kode": "TKT0012"
+    },
+    {
+        "transport": "KERETA",
+        "rute": "pasar senen (PSE) - lempuyangan",
+        "kelas": "VIP",
+        "harga": 550000,
+        "status": "MENUNGGU PEMBAYARAN",
+        "waktu": "05-02-2026 21:51"
+    },
+    {
+        "transport": "KA TAKSAKA",
+        "rute": "Gambir - Yogyakarta",
+        "kelas": "Economy",
+        "harga": 350000,
+        "status": "MENUNGGU PEMBAYARAN",
+        "waktu": "05-02-2026 22:08",
+        "kode": "TKT0014"
+    },
+    {
+        "transport": "A.L.S",
+        "rute": "PORIS PELAWAD - BUKIT TINGGI ",
+        "kelas": "VIP",
+        "harga": 1000000,
+        "status": "LUNAS",
+        "waktu": "05-02-2026 23:41",
+        "kode": "TKT0015"
+    }
+]

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>TravelLink - Reseller Tiket Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">TravelLink 🚀</div>
+    <nav>
+        <a href="#kereta">Kereta</a>
+        <a href="#bus">Bus</a>
+        <a href="#perahu">Perahu</a>
+        <a href="/cek_tiket">Cek Tiket</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Jelajahi Dunia Tanpa Batas</h1>
+    <p>Pesan tiket Kereta, Bus, dan Perahu dengan cepat & aman</p>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Cari asal / tujuan...">
+        <input type="date" id="tanggalInput">
+        <select id="transportFilter">
+            <option value="all">Semua Transportasi</option>
+            <option value="Kereta">Kereta</option>
+            <option value="Bus">Bus</option>
+            <option value="Perahu">Perahu</option>
+        </select>
+    </div>
+</section>
+
+<main class="container">
+
+<!-- ================= KERETA ================= -->
+<section id="kereta" class="category-section">
+    <h2>🚆 KA SAWUNGGALIH</h2>
+    <div class="ticket-grid">
+        {% for t in data.train_tickets %}
+        <div class="ticket-card"
+             data-origin="{{ t.origin }}"
+             data-destination="{{ t.destination }}"
+             data-date="{{ t.date }}"
+             data-transport="Kereta">
+
+            <div class="card-top">
+                <span class="time">⏰ {{ t.time }}</span>
+                <span class="class">🎟 {{ t.class }}</span>
+            </div>
+
+            <!-- NAMA TRANSPORTASI -->
+            <div class="transport-name">🚆 {{ t.transport_name }}</div>
+            <!-- TANGGAL -->
+            <div class="date">📅 {{ t.date }}</div>
+
+            <div class="route">{{ t.origin }} ➝ {{ t.destination }}</div>
+            <div class="price">Rp {{ "{:,}".format(t.price) }}</div>
+
+            <a href="/order/kereta/{{ t.id }}" class="btn-buy">
+                Pesan via WhatsApp
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ================= BUS ================= -->
+<section id="bus" class="category-section">
+    <h2>🚌 SINAR JAYA</h2>
+    <div class="ticket-grid">
+        {% for t in data.bus_tickets %}
+        <div class="ticket-card"
+             data-origin="{{ t.origin }}"
+             data-destination="{{ t.destination }}"
+             data-date="{{ t.date }}"
+             data-transport="Bus">
+
+            <div class="card-top">
+                <span class="time">⏰ {{ t.time }}</span>
+                <span class="class">🎟 {{ t.class }}</span>
+            </div>
+
+            <div class="transport-name">🚌 {{ t.transport_name }}</div>
+            <div class="date">📅 {{ t.date }}</div>
+
+            <div class="route">{{ t.origin }} ➝ {{ t.destination }}</div>
+            <div class="price">Rp {{ "{:,}".format(t.price) }}</div>
+
+            <a href="/order/bus/{{ t.id }}" class="btn-buy">
+                Pesan via WhatsApp
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ================= PERAHU ================= -->
+<section id="perahu" class="category-section">
+    <h2>⛴ FERY</h2>
+    <div class="ticket-grid">
+        {% for t in data.boat_tickets %}
+        <div class="ticket-card"
+             data-origin="{{ t.origin }}"
+             data-destination="{{ t.destination }}"
+             data-date="{{ t.date }}"
+             data-transport="Perahu">
+
+            <div class="card-top">
+                <span class="time">⏰ {{ t.time }}</span>
+                <span class="class">🎟 {{ t.class }}</span>
+            </div>
+
+            <div class="transport-name">⛴ {{ t.transport_name }}</div>
+            <div class="date">📅 {{ t.date }}</div>
+
+            <div class="route">{{ t.origin }} ➝ {{ t.destination }}</div>
+            <div class="price">Rp {{ "{:,}".format(t.price) }}</div>
+
+            <a href="/order/perahu/{{ t.id }}" class="btn-buy">
+                Pesan via WhatsApp
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+</main>
+
+<a href="https://wa.me/6281290305857" class="fab-whatsapp">
+    <img src="{{ url_for('static', filename='whatsup.png') }}" alt="WA">
+</a>
+
+<footer>
+    <p>© 2024 TravelLink • Aman • Cepat • Terpercaya</p>
+</footer>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const tanggalInput = document.getElementById("tanggalInput");
+const transportFilter = document.getElementById("transportFilter");
+const cards = document.querySelectorAll(".ticket-card");
+
+function filterTickets() {
+    const keyword = searchInput.value.toLowerCase();
+    const dateFilter = tanggalInput.value;
+    const transport = transportFilter.value;
+
+    cards.forEach(card => {
+        const origin = card.dataset.origin.toLowerCase();
+        const destination = card.dataset.destination.toLowerCase();
+        const cardDate = card.dataset.date;
+        const cardTransport = card.dataset.transport;
+
+        const matchText = origin.includes(keyword) || destination.includes(keyword);
+        const matchDate = !dateFilter || cardDate === dateFilter;
+        const matchTransport = transport === "all" || transport === cardTransport;
+
+        card.style.display = (matchText && matchDate && matchTransport) ? "block" : "none";
+    });
+}
+
+searchInput.addEventListener("keyup", filterTickets);
+tanggalInput.addEventListener("change", filterTickets);
+transportFilter.addEventListener("change", filterTickets);
+</script>
+
+</body>
+</html>

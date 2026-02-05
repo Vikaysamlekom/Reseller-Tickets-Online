@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Edit Tiket</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg,#4c1d95,#2563eb);
+    color: white;
+    padding: 30px;
+}
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+form {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: auto;
+    display: grid;
+    gap: 15px;
+}
+input, select, button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+input, select {
+    width: 100%;
+}
+button {
+    background: linear-gradient(to right,#f97316,#f43f5e);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Edit Tiket - {{ ticket.transport_name }}</h2>
+
+<form method="post">
+    <input name="origin" placeholder="Kota Asal" value="{{ ticket.origin }}" required>
+    <input name="destination" placeholder="Kota Tujuan" value="{{ ticket.destination }}" required>
+    <input name="date" type="date" value="{{ ticket.date }}" required>
+    <input name="time" placeholder="Jam (08:00)" value="{{ ticket.time }}" required>
+    <input name="class" placeholder="Kelas (Economy/VIP)" value="{{ ticket.class }}" required>
+    <input name="price" placeholder="Harga" value="{{ ticket.price }}" required>
+    <input name="availability" placeholder="Ketersediaan" value="{{ ticket.availability }}" required>
+    <input name="transport_name" placeholder="Nama Transportasi (KA/BUS/FERY)" value="{{ ticket.transport_name }}" required>
+
+    <button type="submit">Simpan Perubahan</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+{
+    "train_tickets": [
+        {
+            "id": 1111,
+            "origin": "PASAR SENEN (PSE)",
+            "destination": "KUTOARTJO (KTA)",
+            "date": "2026-02-10",
+            "time": "07:30",
+            "class": "Economy",
+            "price": 200000,
+            "availability": 30,
+            "transport_name": "KA SAWUNGGALIH"
+        },
+        {
+            "id": 1111,
+            "origin": "PASAR SENEN (PSE)",
+            "destination": "KUTOARTJO (KTA)",
+            "date": "2026-02-10",
+            "time": "07:30",
+            "class": "VIP",
+            "price": 550000,
+            "availability": 30,
+            "transport_name": "KA SAWUNGGALIH"
+        },
+        {
+            "id": 1122,
+            "origin": "GAMBIR (GMR)",
+            "destination": "YOGYAKARTA (YK)",
+            "date": "2026-02-10",
+            "time": "07:30",
+            "class": "VIP",
+            "price": 700000,
+            "availability": 30,
+            "transport_name": "KA TAKSAKA"
+        },
+        {
+            "id": 1122,
+            "origin": "GAMBIR (GMR)",
+            "destination": "YOGYAKARTA (YK)",
+            "date": "2026-02-10",
+            "time": "10:00",
+            "class": "VIP",
+            "price": 700000,
+            "availability": 30,
+            "transport_name": "KA TAKSAKA"
+        }
+    ],
+    "bus_tickets": [
+        {
+            "id": 2222,
+            "origin": "LEGOK",
+            "destination": "YOGYAKARTA",
+            "date": "2026-02-25",
+            "time": "16:00",
+            "class": "Economy",
+            "price": 200000,
+            "availability": 30,
+            "transport_name": "MURNI JAYA"
+        },
+        {
+            "id": 2211,
+            "origin": "PORIS PELAWAD",
+            "destination": "BUKIT TINGGI ",
+            "date": "2026-02-23",
+            "time": "07:30",
+            "class": "VIP",
+            "price": 1000000,
+            "availability": 20,
+            "transport_name": "A.L.S"
+        }
+    ],
+    "boat_tickets": [
+        {
+            "id": 3333,
+            "origin": "MERAK",
+            "destination": "BAKAUHEUNI",
+            "date": "2026-02-15",
+            "time": "15:00",
+            "class": "Economy",
+            "price": 25000,
+            "availability": 30,
+            "transport_name": "FERY"
+        },
+        {
+            "id": 3311,
+            "origin": "MERAK",
+            "destination": "BAKAUHEUNI",
+            "date": "2026-02-15",
+            "time": "17:00",
+            "class": "Economy",
+            "price": 25000,
+            "availability": 30,
+            "transport_name": "FERY"
+        }
+    ]
+}

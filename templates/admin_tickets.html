@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Admin Tiket</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{ font-family: 'Poppins', sans-serif; box-sizing: border-box; }
+body{ margin:0; min-height:100vh; background: linear-gradient(135deg,#4c1d95,#2563eb); color:white; }
+header{ padding:20px 40px; display:flex; justify-content:space-between; align-items:center; }
+header a{ color:white; text-decoration:none; margin-left:20px; font-weight:500; }
+.container{ max-width:1100px; margin:auto; padding:20px; }
+.card{ background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius:20px; padding:25px; margin-bottom:30px; }
+h2{ margin-bottom:20px; }
+form{ display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:15px; }
+input,select,button{ padding:12px; border:none; border-radius:10px; outline:none; }
+input,select{ background:white; }
+button{ grid-column:1/-1; background: linear-gradient(to right,#f97316,#f43f5e); color:white; font-size:16px; cursor:pointer; font-weight:bold; }
+table{ width:100%; border-collapse:collapse; }
+th,td{ padding:12px; text-align:left; }
+th{ background: rgba(255,255,255,0.2); }
+tr:nth-child(even){ background: rgba(255,255,255,0.1); }
+.btn-action{ padding:6px 12px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; text-decoration:none; text-align:center; }
+.btn-edit{ background:#22c55e; color:white; }
+.btn-delete{ background:#ef4444; color:white; }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎟️ Admin Tiket</h1>
+    <div>
+        <a href="/admin">Dashboard</a>
+        <a href="/logout">Logout</a>
+    </div>
+</header>
+
+<div class="container">
+
+<!-- TAMBAH TIKET -->
+<div class="card">
+<h2>➕ Tambah Tiket Baru</h2>
+
+<form method="post">
+    <select name="transport" required>
+        <option value="">Transport</option>
+        <option value="kereta">Kereta</option>
+        <option value="bus">Bus</option>
+        <option value="perahu">Perahu</option>
+    </select>
+
+    <input name="id" placeholder="ID Tiket" required>
+    <input name="origin" placeholder="Kota Asal" required>
+    <input name="destination" placeholder="Kota Tujuan" required>
+    <input name="date" type="date" placeholder="Tanggal Keberangkatan" required>
+    <input name="time" placeholder="Jam (08:00)" required>
+    <input name="class" placeholder="Kelas (Economy/VIP)" required>
+    <input name="price" placeholder="Harga" required>
+    <input name="availability" placeholder="Ketersediaan" required>
+    <input name="transport_name" placeholder="Nama Transportasi (KA/BUS/FERY)" required>
+
+    <button type="submit">Simpan Tiket</button>
+</form>
+</div>
+
+<!-- DAFTAR TIKET -->
+<div class="card">
+<h2>📋 Daftar Tiket</h2>
+
+<table>
+<tr>
+    <th>Transport</th>
+    <th>Nama Transport</th>
+    <th>Tanggal</th>
+    <th>Kota Asal</th>
+    <th>Kota Tujuan</th>
+    <th>Jam</th>
+    <th>Kelas</th>
+    <th>Harga</th>
+    <th>Aksi</th>
+</tr>
+
+<!-- TRAIN -->
+{% for t in data.train_tickets %}
+<tr>
+    <td>Kereta</td>
+    <td>{{ t.transport_name }}</td>
+    <td>{{ t.date }}</td>
+    <td>{{ t.origin }}</td>
+    <td>{{ t.destination }}</td>
+    <td>{{ t.time }}</td>
+    <td>{{ t.class }}</td>
+    <td>Rp {{ "{:,}".format(t.price) }}</td>
+    <td style="display:flex; gap:5px;">
+        <a href="/admin/edit/kereta/{{ t.id }}" class="btn-action btn-edit">Edit</a>
+        <a href="/admin/delete/kereta/{{ t.id }}" class="btn-action btn-delete">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+
+<!-- BUS -->
+{% for t in data.bus_tickets %}
+<tr>
+    <td>Bus</td>
+    <td>{{ t.transport_name }}</td>
+    <td>{{ t.date }}</td>
+    <td>{{ t.origin }}</td>
+    <td>{{ t.destination }}</td>
+    <td>{{ t.time }}</td>
+    <td>{{ t.class }}</td>
+    <td>Rp {{ "{:,}".format(t.price) }}</td>
+    <td style="display:flex; gap:5px;">
+        <a href="/admin/edit/bus/{{ t.id }}" class="btn-action btn-edit">Edit</a>
+        <a href="/admin/delete/bus/{{ t.id }}" class="btn-action btn-delete">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+
+<!-- BOAT -->
+{% for t in data.boat_tickets %}
+<tr>
+    <td>Perahu</td>
+    <td>{{ t.transport_name }}</td>
+    <td>{{ t.date }}</td>
+    <td>{{ t.origin }}</td>
+    <td>{{ t.destination }}</td>
+    <td>{{ t.time }}</td>
+    <td>{{ t.class }}</td>
+    <td>Rp {{ "{:,}".format(t.price) }}</td>
+    <td style="display:flex; gap:5px;">
+        <a href="/admin/edit/perahu/{{ t.id }}" class="btn-action btn-edit">Edit</a>
+        <a href="/admin/delete/perahu/{{ t.id }}" class="btn-action btn-delete">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+</div>
+
+</div>
+
+</body>
+</html>
