@@ -2,12 +2,16 @@ from flask import Flask, render_template, request, redirect, session
 import json
 from datetime import datetime
 from urllib.parse import quote
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+DATA_FILE = os.path.join(BASE_DIR, "data.json")
+ORDERS_FILE = os.path.join(BASE_DIR, "orders.json")
 
 app = Flask(__name__)
 app.secret_key = "admin-secret"
 
-DATA_FILE = "data.json"
-ORDERS_FILE = "orders.json"
 WA_NUMBER = "6281234567832"
 # =====================
 # HELPER
@@ -232,5 +236,3 @@ def cek_tiket():
         ticket = next((o for o in orders if o.get("kode") == kode), None)
     return render_template("cek_tiket.html", ticket=ticket)
 
-if __name__ == "__main__":
-    app.run(debug=True)
